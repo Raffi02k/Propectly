@@ -84,7 +84,7 @@ export const Header: React.FC = () => {
           Om Kevin
         </a>
         <a href="#faq" className="mobile-nav-link" onClick={closeMenu}>
-          Vanliga frågor (FAQ)
+          FAQ
         </a>
 
         <div style={{ marginTop: '1rem' }}>

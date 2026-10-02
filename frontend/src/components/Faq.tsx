@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, HelpCircle, ArrowRight } from 'lucide-react';
+import { ChevronDown, ArrowRight } from 'lucide-react';
 
 interface FaqItem {
   question: string;
@@ -50,10 +50,6 @@ export const Faq: React.FC = () => {
     <section id="faq" className="section-padding faq-section">
       <div className="container">
         <div className="section-header">
-          <div className="section-badge">
-            <HelpCircle size={15} />
-            <span>Vanliga frågor</span>
-          </div>
           <h2 className="section-title">Frågor & svar om mötesbokningen</h2>
           <p className="section-subtitle">
             Här hittar du svar på de vanligaste frågorna kring hur samarbetet fungerar för rekryteringsbolag i Göteborg och hela landet.
