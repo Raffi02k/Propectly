@@ -1,0 +1,19 @@
+# Prospectly
+Prospectly är en specialiserad B2B-säljkonsultation och mötesbokningstjänst grundad av Kevin Söder. Företaget hjälper små och medelstora IT- och tech-rekryterings- och bemanningsbolag i Sverige att få fler kunduppdrag genom kvalificerad mötesbokning.
+
+## Officiell Webbplats
+- Webbplats: https://prospectly.se/
+- Grundare: Kevin Söder
+- E-post: kevin@prospectly.se
+- Calendly: https://calendly.com/kevin-prospectly
+- LinkedIn: https://www.linkedin.com/in/kevin-s%C3%B6der-b42a1b279
+
+## Kärnerbjudande & Värdelöfte
+- Slogan: "Ni rekryterar. Jag fyller kalendern."
+- Målgrupp: IT-rekryteringsbolag och bemanningsföretag i Sverige som vill öka antalet kunduppdrag utan att själva lägga tid på kalla samtal och prospektering.
+- Tjänst: Kartläggning av drömkunder och beslutsfattare (CTO, VP of Engineering, IT-chefer, rekryterande ledare), skarp B2B-outreach och bokning av kvalificerade möten direkt i kundens kalender.
+
+## Villkor & Prismodell
+- Inga fasta standardpriser på sidan: Varje samarbete prissätts individuellt utifrån kundens specifika behov, kapacitet och geografiska räckvidd.
+- Ingen bindningstid för att komma igång.
+- Fokus på resultat och kvalificerade möten (inte tomma kaffemöten).
