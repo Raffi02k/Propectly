@@ -43,7 +43,7 @@ export const Faq: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFaq = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+    setOpenIndex((prev) => (prev === index ? null : index));
   };
 
   return (
@@ -67,23 +67,22 @@ export const Faq: React.FC = () => {
               <div
                 key={index}
                 className={`faq-item ${isOpen ? 'open' : ''}`}
-                onClick={() => toggleFaq(index)}
               >
                 <button
+                  type="button"
                   className="faq-question-btn"
                   aria-expanded={isOpen}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    toggleFaq(index);
-                  }}
+                  onClick={() => toggleFaq(index)}
                 >
                   <span className="faq-question-text">{faq.question}</span>
                   <span className={`faq-icon ${isOpen ? 'rotated' : ''}`}>
                     <ChevronDown size={20} />
                   </span>
                 </button>
-                <div className={`faq-answer-panel ${isOpen ? 'visible' : ''}`}>
-                  <p className="faq-answer-text">{faq.answer}</p>
+                <div className={`faq-answer-wrapper ${isOpen ? 'open' : ''}`}>
+                  <div className="faq-answer-inner">
+                    <p className="faq-answer-text">{faq.answer}</p>
+                  </div>
                 </div>
               </div>
             );

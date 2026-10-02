@@ -1215,8 +1215,7 @@ img {
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-light);
   overflow: hidden;
-  transition: all var(--transition-fast);
-  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .faq-item:hover {
@@ -1234,7 +1233,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.35rem 1.75rem;
+  padding: 1.25rem 1.75rem;
   text-align: left;
   font-family: inherit;
   font-size: 1.0625rem;
@@ -1259,7 +1258,7 @@ img {
   border-radius: 50%;
   background: var(--bg-page);
   color: var(--text-muted);
-  transition: transform var(--transition-normal), background var(--transition-fast), color var(--transition-fast);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s ease, color 0.2s ease;
   flex-shrink: 0;
 }
 
@@ -1269,21 +1268,23 @@ img {
   color: var(--accent-green);
 }
 
-.faq-answer-panel {
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
-  padding: 0 1.75rem;
+/* Modern zero-lag CSS Grid accordion expansion */
+.faq-answer-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.faq-answer-panel.visible {
-  max-height: 300px;
-  opacity: 1;
-  padding-bottom: 1.35rem;
+.faq-answer-wrapper.open {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer-inner {
+  overflow: hidden;
 }
 
 .faq-answer-text {
+  padding: 0 1.75rem 1.35rem 1.75rem;
   font-size: 0.95rem;
   color: var(--text-body);
   line-height: 1.65;
