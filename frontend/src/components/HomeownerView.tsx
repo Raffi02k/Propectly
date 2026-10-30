@@ -15,7 +15,7 @@ export const HomeownerView: React.FC<HomeownerViewProps> = ({ onSwitchToContract
       <section className="hero-section homeowner-hero">
         <div className="container">
           <div className="homeowner-hero-inner">
-            <div className="airbnb-pill-badge" style={{ margin: '0 auto 1.25rem' }}>
+            <div className="section-badge" style={{ margin: '0 auto 1.25rem' }}>
               <span>Kostnadsfritt för privatpersoner • Hitta kontrollerad firma</span>
             </div>
 
@@ -24,39 +24,34 @@ export const HomeownerView: React.FC<HomeownerViewProps> = ({ onSwitchToContract
               <span className="hero-title-highlight">kontrollerade åt dig</span>
             </h1>
 
-            <p className="hero-lead" style={{ maxWidth: '780px', margin: '0 auto 2rem', textAlign: 'center' }}>
+            <p className="hero-lead" style={{ maxWidth: '780px', margin: '0 auto 1.75rem', textAlign: 'center' }}>
               Ska du renovera badrum, kök eller tak? Vi matchar dig med noggrant granskade hantverkare med rätt behörigheter (Säker Vatten, GVK/BKR) – eller hjälper dig granska en offert du redan har fått så att du vet exakt vad du betalar för.
             </p>
 
-            <div className="airbnb-pill-badge" style={{ margin: '0 auto 2rem', display: 'inline-flex' }}>
-              <ShieldCheck size={16} />
-              <span>Trygga hantverkare • Tydliga priser utan dolda överraskningar</span>
-            </div>
-
-            <div className="hero-trust-list" style={{ justifyContent: 'center', marginBottom: '2.5rem' }}>
-              <div className="hero-trust-item">
-                <CheckCircle2 size={18} />
+            <div className="hero-trust-row" style={{ justifyContent: 'center', marginBottom: '2rem' }}>
+              <div className="hero-trust-chip">
+                <CheckCircle2 size={16} />
                 <span>100% gratis för dig</span>
               </div>
-              <div className="hero-trust-item">
-                <CheckCircle2 size={18} />
+              <div className="hero-trust-chip">
+                <CheckCircle2 size={16} />
                 <span>Endast certifierade firmor</span>
               </div>
-              <div className="hero-trust-item">
-                <CheckCircle2 size={18} />
+              <div className="hero-trust-chip">
+                <CheckCircle2 size={16} />
                 <span>ROT-avdrag direkt på fakturan</span>
               </div>
             </div>
 
             <div className="b2b-switch-banner">
-              <HardHat size={20} color="#1F3A5F" />
+              <HardHat size={18} color="#1F3A5F" />
               <span>Driver du en byggfirma?</span>
               <button
                 type="button"
                 className="b2b-switch-btn"
                 onClick={onSwitchToContractor}
               >
-                Gå till sidan för byggfirmor (Få fler stängda offerter) →
+                Gå till sidan för byggfirmor →
               </button>
             </div>
           </div>
@@ -76,8 +71,10 @@ export const HomeownerView: React.FC<HomeownerViewProps> = ({ onSwitchToContract
 
           <div className="steps-grid">
             <div className="step-card">
-              <div className="step-number-badge">01</div>
-              <h3>Beskriv ditt projekt</h3>
+              <div className="step-card-top">
+                <div className="step-number-badge">01</div>
+                <h3>Beskriv ditt projekt</h3>
+              </div>
               <p>
                 Fyll i formuläret nedan. Berätta om du vill göra badrum, kök eller tak. Har du redan fått offerter från andra firmor kan du enkelt bifoga dem så granskar vi dem åt dig.
               </p>
@@ -88,8 +85,10 @@ export const HomeownerView: React.FC<HomeownerViewProps> = ({ onSwitchToContract
             </div>
 
             <div className="step-card">
-              <div className="step-number-badge">02</div>
-              <h3>Personlig rådgivning med Kevin</h3>
+              <div className="step-card-top">
+                <div className="step-number-badge">02</div>
+                <h3>Personlig rådgivning med Kevin</h3>
+              </div>
               <p>
                 Kevin Söder kontaktar dig för ett kort, trevligt samtal. Vi går igenom vad du vill göra, reder ut frågetecken kring ROT-avdrag och förklarar vad som rimligen bör ingå.
               </p>
@@ -100,8 +99,10 @@ export const HomeownerView: React.FC<HomeownerViewProps> = ({ onSwitchToContract
             </div>
 
             <div className="step-card">
-              <div className="step-number-badge">03</div>
-              <h3>Trygg offert & kvalitetssäkrad start</h3>
+              <div className="step-card-top">
+                <div className="step-number-badge">03</div>
+                <h3>Trygg offert & kvalitetssäkrad start</h3>
+              </div>
               <p>
                 Du får kontakt med en granskad och behörig firma i Göteborg med F-skatt, försäkring och rätt våtrums- eller VVS-behörighet. Du får en tydlig kalkyl och väljer själv i lugn och ro.
               </p>

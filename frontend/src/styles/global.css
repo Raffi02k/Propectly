@@ -2531,6 +2531,13 @@ img {
   border-color: #222222;
 }
 
+.step-mini-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.5rem;
+}
+
 .step-mini-num {
   width: 28px;
   height: 28px;
@@ -2542,18 +2549,35 @@ img {
   justify-content: center;
   font-size: 0.8125rem;
   font-weight: 800;
-  margin-bottom: 0.85rem;
+  flex-shrink: 0;
+  margin-bottom: 0;
 }
 
 .highlight-step .step-mini-num {
   background: #222222;
 }
 
-.step-mini-card h4 {
+.step-mini-header h4 {
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--text-heading);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0;
+}
+
+.step-card-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.step-card-top .step-number-badge {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.step-card-top h3 {
+  margin-bottom: 0;
 }
 
 .step-mini-card p {
@@ -3732,7 +3756,9 @@ section[id], div[id] {
   }
 
   .section-title {
-    font-size: clamp(1.65rem, 6vw, 2.15rem);
+    font-size: clamp(1.2rem, 5vw, 1.65rem);
+    line-height: 1.25;
+    text-wrap: balance;
   }
 
   .section-subtitle {
@@ -3790,19 +3816,28 @@ section[id], div[id] {
   }
 
   .step-mini-card {
-    padding: 0.85rem 0.75rem;
+    padding: 0.75rem 0.65rem;
+  }
+
+  .step-mini-header {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.35rem;
   }
 
   .step-mini-num {
-    width: 24px;
-    height: 24px;
-    font-size: 0.75rem;
-    margin-bottom: 0.45rem;
+    width: 22px;
+    height: 22px;
+    font-size: 0.72rem;
+    margin-bottom: 0;
+    flex-shrink: 0;
   }
 
   .step-mini-card h4 {
-    font-size: 0.85rem;
-    margin-bottom: 0.2rem;
+    font-size: 0.82rem;
+    margin-bottom: 0;
+    line-height: 1.25;
   }
 
   .step-mini-card p {
@@ -3888,22 +3923,39 @@ section[id], div[id] {
   }
 
   .b2b-switch-banner {
-    display: flex;
-    flex-direction: column;
+    display: inline-flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    gap: 0.35rem;
-    padding: 0.75rem 1rem;
-    border-radius: var(--radius-md);
-    width: 100%;
+    gap: 0.45rem;
+    padding: 0.5rem 0.85rem;
+    border-radius: var(--radius-full);
+    width: auto;
+    max-width: 100%;
+    margin: 0 auto;
     box-sizing: border-box;
-    font-size: 0.825rem;
+    font-size: 0.78rem;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .b2b-switch-banner span {
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+
+  .b2b-switch-banner svg {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
   }
 
   .b2b-switch-btn {
-    white-space: normal;
+    white-space: nowrap;
     text-align: center;
-    font-size: 0.825rem;
+    font-size: 0.78rem;
+    display: inline-block;
   }
 
   /* Universal button polish on mobile */

@@ -27,32 +27,42 @@ export const Solution: React.FC = () => {
 
           <div className="steps-subgrid">
             <div className="step-mini-card">
-              <div className="step-mini-num">1</div>
-              <h4>Lämna över kalla offerter</h4>
+              <div className="step-mini-header">
+                <div className="step-mini-num">1</div>
+                <h4>Lämna över kalla offerter</h4>
+              </div>
               <p>Ni skickar över offerter där kunden inte har svarat eller velar.</p>
             </div>
 
             <div className="step-mini-card">
-              <div className="step-mini-num">2</div>
-              <h4>Personlig genomgång med kunden</h4>
+              <div className="step-mini-header">
+                <div className="step-mini-num">2</div>
+                <h4>Personlig genomgång med kunden</h4>
+              </div>
               <p>Jag ringer upp kunden och förklarar kalkylen del för del på vanlig svenska.</p>
             </div>
 
             <div className="step-mini-card">
-              <div className="step-mini-num">3</div>
-              <h4>ROT & delbetalning</h4>
+              <div className="step-mini-header">
+                <div className="step-mini-num">3</div>
+                <h4>ROT & delbetalning</h4>
+              </div>
               <p>Jag förklarar dyra poster, räknar på ROT-avdrag och visar månadskostnad.</p>
             </div>
 
             <div className="step-mini-card">
-              <div className="step-mini-num">4</div>
-              <h4>Kunden tackar ja</h4>
+              <div className="step-mini-header">
+                <div className="step-mini-num">4</div>
+                <h4>Kunden tackar ja</h4>
+              </div>
               <p>Kunden känner sig trygg, signerar avtalet och ni genomför bygget.</p>
             </div>
 
             <div className="step-mini-card highlight-step">
-              <div className="step-mini-num">5</div>
-              <h4>Provision vid resultat</h4>
+              <div className="step-mini-header">
+                <div className="step-mini-num">5</div>
+                <h4>Provision vid resultat</h4>
+              </div>
               <p>Ni betalar en förutbestämd provision. <strong>Inget resultat = 0 kr i kostnad.</strong></p>
             </div>
           </div>
@@ -72,26 +82,34 @@ export const Solution: React.FC = () => {
 
           <div className="steps-subgrid">
             <div className="step-mini-card">
-              <div className="step-mini-num">1</div>
-              <h4>Förfrågan inkommer</h4>
+              <div className="step-mini-header">
+                <div className="step-mini-num">1</div>
+                <h4>Förfrågan inkommer</h4>
+              </div>
               <p>En firma har fullt upp, eller en privatperson skickar in sitt projekt via sajten.</p>
             </div>
 
             <div className="step-mini-card">
-              <div className="step-mini-num">2</div>
-              <h4>Behovsanalys</h4>
+              <div className="step-mini-header">
+                <div className="step-mini-num">2</div>
+                <h4>Behovsanalys</h4>
+              </div>
               <p>Jag specificerar projektets omfattning, tidsplan, kvadratmeter och ritningar.</p>
             </div>
 
             <div className="step-mini-card">
-              <div className="step-mini-num">3</div>
-              <h4>Matchning till er</h4>
+              <div className="step-mini-header">
+                <div className="step-mini-num">3</div>
+                <h4>Matchning till er</h4>
+              </div>
               <p>Jobbet skickas direkt till er kontrollerade firma i nätverket med ledig kapacitet.</p>
             </div>
 
             <div className="step-mini-card highlight-step">
-              <div className="step-mini-num">4</div>
-              <h4>Enkel ersättning</h4>
+              <div className="step-mini-header">
+                <div className="step-mini-num">4</div>
+                <h4>Enkel ersättning</h4>
+              </div>
               <p>Firman betalar en fast ersättning per förmedlat jobb eller en procentandel.</p>
             </div>
           </div>
