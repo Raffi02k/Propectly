@@ -1,29 +1,29 @@
 import React from 'react';
-import { Sparkles } from 'lucide-react';
-
-const marqueeItems = [
-  "Kvalificerad B2B-mötesbokning",
-  "Nischad mot IT- & Tech-rekrytering",
-  "Betala för resultat",
-  "Möten med CTOs & Tech Leads",
-  "Ingen bindningstid",
-  "Ni rekryterar • Jag fyller kalendern",
-  "Full insyn i er pipeline",
-  "Slipp kalla samtal",
-  "100% verifierat anställningsbehov"
-];
+import { Hammer, ShieldCheck } from 'lucide-react';
 
 export const MarqueeBanner: React.FC = () => {
-  // Duplicate list twice for seamless infinite CSS loop
-  const displayItems = [...marqueeItems, ...marqueeItems];
+  const items = [
+    'Badrumsrenovering Göteborg',
+    'Takbyte & Takläggning',
+    'Köksrenovering',
+    'Stäng dina kalla offerter',
+    'Du bygger, jag säljer',
+    'ROT-avdragskalkyler direkt',
+    '100% resultatbaserat',
+    'Kvalitetskrav: Säker Vatten & GVK/BKR',
+    'Ingen fast månadskostnad',
+  ];
 
   return (
     <div className="marquee-wrapper" aria-hidden="true">
       <div className="marquee-track">
-        {displayItems.map((item, index) => (
-          <div key={index} className="marquee-item">
-            <Sparkles size={14} className="marquee-spark" />
-            <span>{item}</span>
+        {/* Double list for seamless looping */}
+        {[...items, ...items].map((text, idx) => (
+          <div key={idx} className="marquee-item">
+            <span className="marquee-dot">
+              {idx % 2 === 0 ? <Hammer size={14} color="#222222" /> : <ShieldCheck size={14} color="#717171" />}
+            </span>
+            <span className="marquee-text">{text}</span>
           </div>
         ))}
       </div>

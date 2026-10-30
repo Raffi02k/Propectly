@@ -1,128 +1,235 @@
-import React from 'react';
-import { Calendar, ArrowRight, CheckCircle2, Sparkles, ShieldCheck } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, ShieldCheck, Star, ChevronLeft, ChevronRight, Check } from 'lucide-react';
 
-export const Hero: React.FC = () => {
+interface HeroProps {
+  onSwitchToHomeowner: () => void;
+}
+
+interface ProjectCase {
+  id: string;
+  category: string;
+  location: string;
+  title: string;
+  image: string;
+  badge: string;
+  rating: string;
+  price: string;
+  details: string;
+  description: string;
+}
+
+const projects: ProjectCase[] = [
+  {
+    id: 'badrum',
+    category: 'Badrum',
+    location: 'Villa i Askim',
+    title: 'Badrumsrenovering, Villa i Askim',
+    image: '/images/badrum-askim.jpg',
+    badge: 'Offert stängd',
+    rating: '5,0',
+    price: '285 000 kr efter ROT',
+    details: 'Totalentreprenad • GVK-tätskikt • 12 m²',
+    description: 'Personlig genomgång av tätskikt, kalkyl och ROT. Kunden kände sig trygg och signerade avtalet.',
+  },
+  {
+    id: 'kok',
+    category: 'Kök',
+    location: 'Bostadsrätt i Linné',
+    title: 'Köksrenovering, Bostadsrätt i Linné',
+    image: '/images/kok-linne.jpg',
+    badge: 'Förmedlat uppdrag',
+    rating: '5,0',
+    price: 'Kvalificerat underlag',
+    details: 'Snickeri & montering • Ritning klar',
+    description: 'Komplett specifikation och underlag färdigt. Förmedlat till ledig byggfirma i nätverket.',
+  },
+  {
+    id: 'tak',
+    category: 'Takbyte',
+    location: 'Radhus i Mölndal',
+    title: 'Takbyte, Radhus i Mölndal',
+    image: '/images/takbyte-molndal.jpg',
+    badge: 'Offert stängd',
+    rating: '4,9',
+    price: '195 000 kr efter ROT',
+    details: 'Betongpannor • Plåtarbete • Fackmannamässigt',
+    description: 'Jämförelse mot konkurrentoffert förklarad på ren svenska. Kunden valde komplett kvalitet.',
+  },
+];
+
+export const Hero: React.FC<HeroProps> = ({ onSwitchToHomeowner }) => {
+  const [activeProjectIdx, setActiveProjectIdx] = useState(0);
+  const activeProject = projects[activeProjectIdx];
+
+  const handleNext = () => {
+    setActiveProjectIdx((prev) => (prev + 1) % projects.length);
+  };
+
+  const handlePrev = () => {
+    setActiveProjectIdx((prev) => (prev - 1 + projects.length) % projects.length);
+  };
+
   return (
     <section className="hero-section">
       <div className="container">
         <div className="hero-grid">
-          {/* Left Column: Value Proposition */}
+          {/* Left Column: Value Proposition & Airbnb Action Capsule */}
           <div className="hero-content">
-            <div className="hero-tag">
-              <span className="tag-dot"></span>
-              <span>B2B-Mötesbokning för IT- & Tech-rekryterare</span>
-            </div>
-
             <h1 className="hero-title">
-              Fler kunduppdrag åt rekryteringsbolag{' '}
-              <span className="highlight">utan att ni behöver prospektera själva</span>
+              Säljpartner för byggfirmor • Göteborg
             </h1>
 
-            <p className="hero-lead">
-              Jag hjälper IT- och tech-rekryteringsbolag att boka kvalificerade möten med företag som behöver anställa, så att ni kan fokusera på att tillsätta kandidater i stället för att jaga nya kunder.
+            <p className="hero-subtitle-highlight">
+              Fler stängda offerter utan att du behöver sitta på kvällarna
             </p>
 
-            <div className="hero-quote-box">
-              <Sparkles size={20} color="#2E7D5B" />
-              <span className="quote-text">”Ni rekryterar. Jag fyller kalendern.”</span>
+            <p className="hero-lead">
+              Jag hjälper byggfirmor inom badrum, kök och tak att följa upp och stänga skickade offerter samt förmedlar färdiga renoveringsuppdrag. Du gör det du är bäst på och bygger. Du betalar bara för resultat.
+            </p>
+
+            {/* Airbnb-style Search / Action Capsule */}
+            <div className="airbnb-search-bar">
+              <a href="#boka-samtal" className="airbnb-search-segment">
+                <span className="search-label">Vad behöver ni?</span>
+                <span className="search-value">Stänga offerter & uppdrag</span>
+              </a>
+              <div className="airbnb-search-divider"></div>
+              <a href="#boka-samtal" className="airbnb-search-segment">
+                <span className="search-label">Projektkategori</span>
+                <span className="search-value">Badrum • Kök • Tak</span>
+              </a>
+              <div className="airbnb-search-divider"></div>
+              <a href="#prismodell" className="airbnb-search-segment">
+                <span className="search-label">Prismodell</span>
+                <span className="search-value">0 kr fast • Provision</span>
+              </a>
+              <a href="#boka-samtal" className="airbnb-search-btn" aria-label="Boka samtal med Kevin Söder">
+                <span>Boka samtal</span>
+                <ArrowRight size={17} />
+              </a>
             </div>
 
-            <div className="hero-cta-group">
-              <a
-                href="https://calendly.com/kevin-prospectly"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary btn-lg"
+            {/* Trust Points */}
+            <div className="hero-trust-row">
+              <div className="hero-trust-chip">
+                <Check size={15} />
+                <span>0 kr fast månadskostnad</span>
+              </div>
+              <div className="hero-trust-chip">
+                <Check size={15} />
+                <span>Betala bara vid resultat</span>
+              </div>
+              <div className="hero-trust-chip">
+                <Check size={15} />
+                <span>Säljare med snickarbakgrund</span>
+              </div>
+            </div>
+
+            {/* Subtle Homeowner Entry */}
+            <div className="hero-homeowner-pill-wrap">
+              <button
+                type="button"
+                className="hero-homeowner-pill-btn"
+                onClick={onSwitchToHomeowner}
               >
-                <Calendar size={20} />
-                <span>Boka 15 min introduktionsmöte</span>
-                <ArrowRight size={18} />
-              </a>
-
-              <a href="#losningen" className="btn btn-secondary btn-lg">
-                <span>Så funkar upplägget</span>
-              </a>
-            </div>
-
-            <div className="hero-trust-list">
-              <div className="hero-trust-item">
-                <CheckCircle2 size={18} />
-                <span>Ingen bindningstid</span>
-              </div>
-              <div className="hero-trust-item">
-                <CheckCircle2 size={18} />
-                <span>Betala för resultat</span>
-              </div>
-              <div className="hero-trust-item">
-                <CheckCircle2 size={18} />
-                <span>100% kvalificerade möten</span>
-              </div>
+                <span className="pill-prefix">Privatperson?</span>
+                <span>Ska du renovera? Vi hjälper dig hitta en kontrollerad firma →</span>
+              </button>
             </div>
           </div>
 
-          {/* Right Column: Visual Tech Pipeline Card */}
+          {/* Right Column: Airbnb-Style Project Listing Card */}
           <div className="hero-visual">
-            <div className="hero-card">
-              <div className="hero-card-header">
-                <div className="hero-card-title">
-                  <Calendar size={18} color="#2E7D5B" />
-                  <span>Kommande möten</span>
-                </div>
-                <span className="hero-status-pill">
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: '#2E7D5B', flexShrink: 0 }}></span>
-                  Aktiv pipeline
-                </span>
+            <div className="airbnb-card-wrapper">
+              {/* Category Filter Pills on top */}
+              <div className="airbnb-category-pills">
+                {projects.map((p, idx) => (
+                  <button
+                    key={p.id}
+                    type="button"
+                    className={`airbnb-cat-btn ${activeProjectIdx === idx ? 'active' : ''}`}
+                    onClick={() => setActiveProjectIdx(idx)}
+                  >
+                    {p.category}
+                  </button>
+                ))}
               </div>
 
-
-              <div className="hero-meetings-list">
-                <div className="meeting-item">
-                  <div className="meeting-time">
-                    <div>TIS</div>
-                    <div style={{ fontSize: '0.85rem' }}>10:00</div>
+              {/* Main Listing Card */}
+              <div className="airbnb-project-card">
+                <div className="airbnb-card-image-wrap">
+                  <img
+                    src={activeProject.image}
+                    alt={activeProject.title}
+                    className="airbnb-card-img"
+                  />
+                  {/* Airbnb Guest-Favorite Style Badge */}
+                  <div className="airbnb-guest-favorite-badge">
+                    <ShieldCheck size={14} />
+                    <span>{activeProject.badge}</span>
                   </div>
-                  <div className="meeting-info">
-                    <h4>CTO & Co-founder • Fintech Scaleup</h4>
-                    <p>Söker 3 st Senior Backend (Go/Python) & Cloud Architect. Behov av rekryteringspartner omgående.</p>
+
+                  {/* Rating Badge */}
+                  <div className="airbnb-rating-badge">
+                    <Star size={13} fill="#222222" color="#222222" />
+                    <span>{activeProject.rating}</span>
+                  </div>
+
+                  {/* Carousel navigation buttons */}
+                  <div className="airbnb-card-nav-controls">
+                    <button
+                      type="button"
+                      className="airbnb-nav-arrow"
+                      onClick={handlePrev}
+                      aria-label="Föregående projekt"
+                    >
+                      <ChevronLeft size={16} />
+                    </button>
+                    <button
+                      type="button"
+                      className="airbnb-nav-arrow"
+                      onClick={handleNext}
+                      aria-label="Nästa projekt"
+                    >
+                      <ChevronRight size={16} />
+                    </button>
+                  </div>
+
+                  {/* Carousel dots */}
+                  <div className="airbnb-dots">
+                    {projects.map((_, idx) => (
+                      <span
+                        key={idx}
+                        className={`airbnb-dot ${activeProjectIdx === idx ? 'active' : ''}`}
+                        onClick={() => setActiveProjectIdx(idx)}
+                      ></span>
+                    ))}
                   </div>
                 </div>
 
-                <div className="meeting-item">
-                  <div className="meeting-time">
-                    <div>ONS</div>
-                    <div style={{ fontSize: '0.85rem' }}>13:30</div>
+                <div className="airbnb-card-body">
+                  <div className="airbnb-card-top-row">
+                    <h3 className="airbnb-card-title">{activeProject.title}</h3>
+                    <div className="airbnb-card-price">{activeProject.price}</div>
                   </div>
-                  <div className="meeting-info">
-                    <h4>VP of Engineering • Nordisk SaaS-koncern</h4>
-                    <p>Skalar utvecklingsteamet: Behov av Tech Lead & 2 Fullstack-utvecklare i Stockholm.</p>
-                  </div>
+                  <div className="airbnb-card-details">{activeProject.details}</div>
+                  <p className="airbnb-card-desc">{activeProject.description}</p>
                 </div>
 
-                <div className="meeting-item">
-                  <div className="meeting-time">
-                    <div>TOR</div>
-                    <div style={{ fontSize: '0.85rem' }}>11:00</div>
+                {/* Airbnb Host / Partner Footer */}
+                <div className="airbnb-host-footer">
+                  <img
+                    src="/images/kevin-bild.jpg"
+                    alt="Kevin Söder"
+                    className="airbnb-host-avatar"
+                  />
+                  <div className="airbnb-host-info">
+                    <div className="airbnb-host-name">Kevin Söder</div>
+                    <div className="airbnb-host-sub">Säljpartner för byggfirmor • Snickarbakgrund</div>
                   </div>
-                  <div className="meeting-info">
-                    <h4>Head of Tech • E-handelsbolag</h4>
-                    <p>Söker extern partner för att rekrytera DevOps Engineer och Data Platform Specialist.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="hero-card-kevin">
-                <img
-                  src="/images/kevin-bild.jpg"
-                  alt="Kevin Söder"
-                  className="hero-kevin-avatar"
-                />
-                <div className="hero-kevin-details">
-                  <div className="hero-kevin-name">Kevin Söder</div>
-                  <div className="hero-kevin-role">B2B-säljkonsult • Prospectly</div>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '0.75rem', fontWeight: 600, color: '#2E7D5B' }}>
-                  <ShieldCheck size={16} />
-                  <span>Verifierad säljpartner</span>
+                  <a href="#boka-samtal" className="airbnb-host-action">
+                    Få hjälp →
+                  </a>
                 </div>
               </div>
             </div>

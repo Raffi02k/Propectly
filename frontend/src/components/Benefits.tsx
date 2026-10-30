@@ -1,16 +1,15 @@
 import React from 'react';
-import { CheckCircle2, TrendingUp, ShieldCheck, Eye } from 'lucide-react';
+import { Hammer, TrendingUp, ShieldCheck, Clock } from 'lucide-react';
 
 export const Benefits: React.FC = () => {
   return (
     <section id="fordelar" className="section-padding benefits-section">
       <div className="container">
         <div className="section-header">
-          <div className="section-badge">Vad ni får</div>
+          <div className="section-badge">Fördelarna för er</div>
           <h2 className="section-title">Konkreta resultat utan tomma löften</h2>
-
           <p className="section-subtitle">
-            Som rekryterare och säljare själva genomskådar ni flum. Mitt samarbete bygger på transparens, mätbarhet och faktisk ROI.
+            Som hantverkare vill du inte ha fluffiga säljtermer. Du vill ha fler signerade jobb och trygghet i att dina offerter tas om hand på ett seriöst sätt.
           </p>
         </div>
 
@@ -18,12 +17,12 @@ export const Benefits: React.FC = () => {
           {/* Benefit 1 */}
           <div className="benefit-card">
             <div className="benefit-icon">
-              <CheckCircle2 size={28} />
+              <Hammer size={28} />
             </div>
             <div className="benefit-content">
-              <h3>Kvalificerade möten (inte 'kaffemöten')</h3>
+              <h3>En säljare som förstår bygg</h3>
               <p>
-                Jag bokar bara möten med företag som faktiskt har ett uttalat och verifierat behov av att anställa IT- och tech-kompetens. Inga lösa samtal utan köpkraft, utan skarpa dialoger med beslutsfattare.
+                Jag har själv snickarbakgrund och förstår skillnaden på olika tätskikt, reglar, takpannor och rördragningar. Jag kan prata teknik med dig och trygghet, ROT-avdrag och pengar med kunden.
               </p>
             </div>
           </div>
@@ -34,9 +33,9 @@ export const Benefits: React.FC = () => {
               <TrendingUp size={28} />
             </div>
             <div className="benefit-content">
-              <h3>Ni betalar för resultat</h3>
+              <h3>Du betalar endast för resultat</h3>
               <p>
-                Ni ska inte betala för oändliga timmar av fruktlöst ringande. Hela upplägget är fokuserat på att leverera verkliga möten och resultat som leder till skarpa kunduppdrag för er verksamhet.
+                Inga fasta månadskostnader, ingen startavgift och ingen risk. Du betalar en provision först när kunden har signerat och godkänt offerten.
               </p>
             </div>
           </div>
@@ -44,12 +43,12 @@ export const Benefits: React.FC = () => {
           {/* Benefit 3 */}
           <div className="benefit-card">
             <div className="benefit-icon">
-              <ShieldCheck size={28} />
+              <Clock size={28} />
             </div>
             <div className="benefit-content">
-              <h3>Ingen bindningstid för att komma igång</h3>
+              <h3>Fokusera 100% på bygget</h3>
               <p>
-                Jag tror på partnerskap som bygger på förtroende och leverans, inte juridiska inlåsningar. Ni kommer igång snabbt och riskfritt utan komplicerade flerårsavtal.
+                Slipp sitta framför datorn på kvällen med dåligt samvete över kalla offerter. Du bygger under dagarna och vet att någon professionell följer upp kunderna i rätt tid.
               </p>
             </div>
           </div>
@@ -57,12 +56,12 @@ export const Benefits: React.FC = () => {
           {/* Benefit 4 */}
           <div className="benefit-card">
             <div className="benefit-icon">
-              <Eye size={28} />
+              <ShieldCheck size={28} />
             </div>
             <div className="benefit-content">
-              <h3>Full insyn i era bokningar</h3>
+              <h3>Högre stängningsfrekvens</h3>
               <p>
-                Ni har 100% transparens i hela processen. Ni vet exakt vilka företag som kontaktas, vilken feedback som inkommer från marknaden och när nästa möte landar i er kalender.
+                När kunden förstår varför offerten kostar som den gör väljer de hellre er kompletta kvalitet framför billiga fuskbyggare. Kunden slipper osäkerhet och ni vinner jobbet.
               </p>
             </div>
           </div>

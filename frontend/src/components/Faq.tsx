@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, ArrowRight } from 'lucide-react';
+import { ChevronDown, ArrowRight, Phone } from 'lucide-react';
 
 interface FaqItem {
   question: string;
@@ -8,34 +8,34 @@ interface FaqItem {
 
 const faqs: FaqItem[] = [
   {
-    question: "Vilka typer av bolag hjälper Prospectly i Göteborg och övriga Sverige?",
+    question: "Vad kostar det för min byggfirma att anlita dig?",
     answer:
-      "Jag hjälper små och medelstora IT- och tech-rekryterings- samt bemanningsföretag i Göteborg och över hela Sverige. Mina kunder är ofta grundarledda bolag som vill skala sin kundbas utan att behöva anställa interna säljare eller slösa tid på kall prospektering."
+      "Det kostar 0 kr i fast månadskostnad eller startavgift. Jag jobbar 100% resultatbaserat mot en förutbestämd provision på stängda offerter eller förmedlade jobb. Inget resultat = noll kronor i kostnad för er."
   },
   {
-    question: "Vilka beslutsfattare bokar du möten med?",
+    question: "Hur snabbt kan vi komma igång och testa?",
     answer:
-      "Möten bokas uteslutande med relevanta beslutsfattare som har direkt mandat att anställa IT- och tech-kompetens – exempelvis CTOs, Head of Engineering, Tech Leads, IT-chefer och rekryterande VD:ar."
+      "Vi kan komma igång på 24 timmar. Du fyller i formuläret här på sidan eller ringer mig direkt, sedan skickar du över ett par offerter som kunden inte har svarat på så börjar jag bearbeta dem direkt."
   },
   {
-    question: "Hur snabbt kan vi komma igång?",
+    question: "Vilka typer av renoveringar och orter fokuserar du på?",
     answer:
-      "Efter ett kort introduktionssamtal där vi definierar er målgrupp, tech-stackar och idealkundsprofil sätter jag igång researchen och outreach-arbetet. Första mötena brukar landa i er kalender inom 1–2 veckor."
+      "Fokus ligger på renovering av badrum, kök och tak med utgångspunkt i Göteborg och kranskommuner (Mölndal, Kungsbacka, Kungälv, Partille, Lerum, Härryda etc.)."
   },
   {
-    question: "Vad innebär det att vi betalar för resultat?",
+    question: "Hur presenterar du dig när du ringer mina kunder?",
     answer:
-      "Det innebär ett transparent och riskfritt partnerskap. Ni betalar för faktiska, kvalificerade kundmöten som levereras – inte för tomma timrapporter eller slentrianmässiga samtal."
+      "Jag presenterar mig som er personliga säljresurs och samarbetspartner. Jag går igenom offerten i ert namn med stor respekt för ert varumärke, förklarar ROT-avdrag och materialval samt rätar ut eventuella frågetecken som hindrat kunden från att skriva på."
   },
   {
-    question: "Finns det någon bindningstid?",
+    question: "Hur fungerar det om vi får in förfrågningar vi inte hinner ta?",
     answer:
-      "Nej, det finns ingen bindningstid för att komma igång. Jag tror på långsiktiga partnerskap baserade på verklig leverans, inte på att låsa in kunder i krångliga avtal."
+      "Då kan ni förmedla jobbet vidare genom mig. Jag tar emot kundens underlag och förmedlar det till en kontrollerad firma i mitt nätverk som har ledig kapacitet. Ni får ersättning för tipset i stället för att tappa kunden helt."
   },
   {
-    question: "Hur har vi insyn i prospekteringen och bokningarna?",
+    question: "Finns det någon bindningstid eller exklusivitet?",
     answer:
-      "Ni har full transparens. Ni får löpande avstämningar och ser precis vilka bolag som kontaktas, vilken feedback som marknaden ger och när nya möten bokas direkt in i er kalender."
+      "Nej, det finns ingen bindningstid. Du väljer själv vilka offerter du vill lämna över och kan testa upplägget i den takt som passar er verksamhet."
   }
 ];
 
@@ -50,9 +50,10 @@ export const Faq: React.FC = () => {
     <section id="faq" className="section-padding faq-section">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Frågor & svar om mötesbokningen</h2>
+          <div className="section-badge">Vanliga frågor</div>
+          <h2 className="section-title">Frågor & svar för byggfirmor</h2>
           <p className="section-subtitle">
-            Här hittar du svar på de vanligaste frågorna kring hur samarbetet fungerar för rekryteringsbolag i Göteborg och hela landet.
+            Här hittar du svar på de vanligaste funderingarna kring hur samarbetet fungerar i praktiken.
           </p>
         </div>
 
@@ -86,16 +87,17 @@ export const Faq: React.FC = () => {
         </div>
 
         <div className="faq-bottom-cta">
-          <p>Har du en specifik fråga om dina förutsättningar?</p>
-          <a
-            href="https://calendly.com/kevin-prospectly"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-secondary"
-          >
-            <span>Boka ett 15 min samtal med Kevin</span>
-            <ArrowRight size={18} />
-          </a>
+          <p>Har du en specifik fundering eller vill diskutera en offert direkt?</p>
+          <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a href="tel:0701234567" className="btn btn-secondary">
+              <Phone size={18} />
+              <span>Ring Kevin på 070-123 45 67</span>
+            </a>
+            <a href="#boka-samtal" className="btn btn-primary">
+              <span>Boka förutsättningslöst samtal</span>
+              <ArrowRight size={18} />
+            </a>
+          </div>
         </div>
       </div>
     </section>

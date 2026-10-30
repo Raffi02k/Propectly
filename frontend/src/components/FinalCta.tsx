@@ -1,36 +1,56 @@
 import React from 'react';
-import { Calendar, ArrowRight } from 'lucide-react';
+import { Phone, Calendar, ArrowRight } from 'lucide-react';
+import { ContractorForm } from './ContractorForm';
 
-export const FinalCta: React.FC = () => {
+interface FinalCtaProps {
+  onOpenGdpr?: () => void;
+}
+
+export const FinalCta: React.FC<FinalCtaProps> = ({ onOpenGdpr }) => {
   return (
-    <section className="section-padding final-cta-section">
+    <section id="boka-samtal" className="section-padding final-cta-section">
       <div className="container">
-        <div className="final-cta-box">
-          <h2>Redo att fylla kalendern med nya kunduppdrag?</h2>
-          <p>
-            Boka ett förutsättningslöst 15-minuters introduktionssamtal direkt i min Calendly. Vi stämmer av er kapacitet, er målgrupp och ser hur många kvalificerade möten vi kan leverera till er nästa månad.
-          </p>
+        <div className="form-wrapper-box">
+          <div className="form-header-area">
+            <div className="section-badge">Boka förutsättningslöst samtal</div>
+            <h2>Få fler stängda offerter utan fast kostnad</h2>
+            <p>
+              Fyll i formuläret nedan så ringer Kevin upp dig inom 24 timmar. Vi går igenom hur din firma arbetar idag, vilka offerter som ligger och hur vi kan stänga dem tillsammans.
+            </p>
+          </div>
 
-          <div className="final-cta-action">
+          <ContractorForm onOpenGdpr={onOpenGdpr} />
+
+          <div className="direct-call-banner">
+            <div className="direct-call-left">
+              <Phone size={22} color="#222222" />
+              <div>
+                <strong>Sitter du i bilen eller vill prata direkt?</strong>
+                <p>Ring Kevin Söder på 070-123 45 67 (Vardagar 07:00 till 18:00)</p>
+              </div>
+            </div>
+            <a href="tel:0701234567" className="btn btn-secondary btn-sm">
+              Ring direkt
+            </a>
+          </div>
+
+          <div className="direct-call-banner" style={{ marginTop: '0.85rem' }}>
+            <div className="direct-call-left">
+              <Calendar size={22} color="#1F3A5F" />
+              <div>
+                <strong>Föredrar du att välja tid direkt i kalendern?</strong>
+                <p>Boka ett 15 minuters samtal online i Kevins kalender</p>
+              </div>
+            </div>
             <a
               href="https://calendly.com/kevin-prospectly"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-primary btn-lg"
-              style={{ fontSize: '1.15rem', padding: '1.15rem 2.5rem' }}
+              className="btn btn-primary btn-sm"
             >
-              <Calendar size={22} />
-              <span>Boka ett kort möte med Kevin</span>
-              <ArrowRight size={20} />
+              <span>Boka tid online</span>
+              <ArrowRight size={14} />
             </a>
-
-            <div className="final-cta-subtext">
-              <span>✓ Helt förutsättningslöst</span>
-              <span>•</span>
-              <span>✓ Inget säljsnack</span>
-              <span>•</span>
-              <span>✓ Direkt i kalendern</span>
-            </div>
           </div>
         </div>
       </div>

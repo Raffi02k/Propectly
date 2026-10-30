@@ -1,67 +1,105 @@
 import React from 'react';
-import { Target, CalendarCheck, Trophy, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export const Solution: React.FC = () => {
   return (
-    <section id="losningen" className="section-padding steps-section">
+    <section id="tjanster" className="section-padding steps-section">
       <div className="container">
         <div className="section-header">
-          <div className="section-badge">Så funkar det</div>
-          <h2 className="section-title">Ett enkelt upplägg i tre steg</h2>
+          <div className="section-badge">Våra två tjänster</div>
+          <h2 className="section-title">
+            Hur vi hjälper din byggfirma att växa
+          </h2>
           <p className="section-subtitle">
-            Inga komplicerade onboarding-processer eller tekniska hinder. Jag tar hand om hela säljprospekteringen så att ni kan kliva in när mötet är bokat.
+            Båda tjänsterna betalas av byggfirman via provision. Inget resultat = noll kronor i kostnad för er.
           </p>
         </div>
 
-        <div className="steps-grid">
-          {/* Step 1 */}
-          <div className="step-card">
-            <div className="step-number-badge">01</div>
-            <h3>Vi kartlägger era drömkunder</h3>
+        {/* Service 1: Stänga offerter */}
+        <div className="service-feature-card">
+          <div className="service-card-header">
+            <div className="service-pill">Tjänst 1 • Huvudtjänst</div>
+            <h3>Stänga offerter åt din byggfirma</h3>
             <p>
-              Vi sätter oss ner och definierar er målgrupp och idealkundprofil. Vilka tech-roller är ni bäst på att tillsätta? Vilka bolagsstorlekar, branscher och geografiska marknader vill ni nå?
+              Har du skickat iväg offerter på 150 000 till 400 000 kr som bara ligger och samlar damm? Låt mig ta över uppföljningen och förvandla dem till signerade kontrakt.
             </p>
-            <div className="step-highlight-box">
-              <Target size={18} color="#1F3A5F" />
-              <span>Kartläggning av CTOs, IT-chefer & Tech Leads</span>
-            </div>
           </div>
 
-          {/* Step 2 */}
-          <div className="step-card">
-            <div className="step-number-badge">02</div>
-            <h3>Jag hittar dem & bokar mötet i er kalender</h3>
-            <p>
-              Jag sköter hela kontakten: gör grundlig research, identifierar rätt beslutsfattare med anställningsbehov och kör skräddarsydd B2B-outreach. När kunden är intresserad bokas mötet direkt i er kalender.
-            </p>
-            <div className="step-highlight-box">
-              <CalendarCheck size={18} color="#2E7D5B" />
-              <span>Fullständig brief & möteslänk rakt i kalendern</span>
+          <div className="steps-subgrid">
+            <div className="step-mini-card">
+              <div className="step-mini-num">1</div>
+              <h4>Lämna över kalla offerter</h4>
+              <p>Ni skickar över offerter där kunden inte har svarat eller velar.</p>
+            </div>
+
+            <div className="step-mini-card">
+              <div className="step-mini-num">2</div>
+              <h4>Personlig genomgång med kunden</h4>
+              <p>Jag ringer upp kunden och förklarar kalkylen del för del på vanlig svenska.</p>
+            </div>
+
+            <div className="step-mini-card">
+              <div className="step-mini-num">3</div>
+              <h4>ROT & delbetalning</h4>
+              <p>Jag förklarar dyra poster, räknar på ROT-avdrag och visar månadskostnad.</p>
+            </div>
+
+            <div className="step-mini-card">
+              <div className="step-mini-num">4</div>
+              <h4>Kunden tackar ja</h4>
+              <p>Kunden känner sig trygg, signerar avtalet och ni genomför bygget.</p>
+            </div>
+
+            <div className="step-mini-card highlight-step">
+              <div className="step-mini-num">5</div>
+              <h4>Provision vid resultat</h4>
+              <p>Ni betalar en förutbestämd provision. <strong>Inget resultat = 0 kr i kostnad.</strong></p>
             </div>
           </div>
+        </div>
 
-          {/* Step 3 */}
-          <div className="step-card">
-            <div className="step-number-badge">03</div>
-            <h3>Ni håller mötet och vinner uppdraget</h3>
+        {/* Service 2: Förmedla jobb */}
+        <div className="service-feature-card" style={{ marginTop: '2.5rem' }}>
+          <div className="service-card-header">
+            <div className="service-pill" style={{ backgroundColor: 'rgba(31, 58, 95, 0.08)', color: '#1F3A5F' }}>
+              Tjänst 2 • Förmedling
+            </div>
+            <h3>Förmedla färdigspecificerade renoveringsjobb</h3>
             <p>
-              Allt ni behöver göra är att ansluta till mötet. Kunden vet redan vem ni är och har ett verifierat behov. Ni presenterar era rekryteringstjänster, visar upp relevanta kandidater och stänger affären.
+              Får ni in förfrågningar ni inte hinner ta? Eller behöver ni fylla luckor i kalendern? Vi matchar kvalitetssäkrade renoveringsuppdrag mellan seriösa aktörer i Göteborg.
             </p>
-            <div className="step-highlight-box">
-              <Trophy size={18} color="#1F3A5F" />
-              <span>Ni fokuserar 100% på att leverera och vinna kunden</span>
+          </div>
+
+          <div className="steps-subgrid">
+            <div className="step-mini-card">
+              <div className="step-mini-num">1</div>
+              <h4>Förfrågan inkommer</h4>
+              <p>En firma har fullt upp, eller en privatperson skickar in sitt projekt via sajten.</p>
+            </div>
+
+            <div className="step-mini-card">
+              <div className="step-mini-num">2</div>
+              <h4>Behovsanalys</h4>
+              <p>Jag specificerar projektets omfattning, tidsplan, kvadratmeter och ritningar.</p>
+            </div>
+
+            <div className="step-mini-card">
+              <div className="step-mini-num">3</div>
+              <h4>Matchning till er</h4>
+              <p>Jobbet skickas direkt till er kontrollerade firma i nätverket med ledig kapacitet.</p>
+            </div>
+
+            <div className="step-mini-card highlight-step">
+              <div className="step-mini-num">4</div>
+              <h4>Enkel ersättning</h4>
+              <p>Firman betalar en fast ersättning per förmedlat jobb eller en procentandel.</p>
             </div>
           </div>
         </div>
 
         <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
-          <a
-            href="https://calendly.com/kevin-prospectly"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary btn-lg"
-          >
-            <span>Vill ni se hur det skulle se ut för er? Boka ett samtal</span>
+          <a href="#boka-samtal" className="btn btn-primary btn-lg">
+            <span>Boka ett samtal och gå igenom era offerter</span>
             <ArrowRight size={18} />
           </a>
         </div>

@@ -1,7 +1,13 @@
 import React from 'react';
-import { Mail, Linkedin, Calendar, ArrowUp, ArrowUpRight } from 'lucide-react';
+import { Mail, Linkedin, Phone, ArrowUp, ShieldCheck } from 'lucide-react';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  currentView: 'contractors' | 'homeowners';
+  onSwitchView: (view: 'contractors' | 'homeowners') => void;
+  onOpenGdpr: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ currentView, onSwitchView, onOpenGdpr }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -11,92 +17,154 @@ export const Footer: React.FC = () => {
       <div className="container">
         <div className="footer-top">
           <div className="footer-brand">
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToTop();
-              }}
-              className="footer-logo-link"
-              aria-label="Tillbaka till toppen"
-            >
-              <img
-                src="/images/logo-prospectly.png"
-                alt="Prospectly"
-              />
-            </a>
-
+            <div className="footer-logo-text">
+              <strong>KEVIN SÖDER</strong>
+            </div>
             <p>
-              Kvalificerad B2B-mötesbokning för små och medelstora IT- och tech-rekryteringsbolag i Sverige. Ni rekryterar. Jag fyller kalendern.
+              Säljpartner och offertstängning för byggfirmor inom badrum, kök och tak i Göteborgsområdet.
+              <br />
+              <em>”Du bygger, jag säljer.”</em>
             </p>
+            <div className="footer-badges">
+              <span className="footer-badge-pill">
+                <ShieldCheck size={14} color="#2E7D5B" />
+                Endast resultatbaserat
+              </span>
+              <span className="footer-badge-pill">
+                <ShieldCheck size={14} color="#2E7D5B" />
+                0 kr fast månadskostnad
+              </span>
+            </div>
           </div>
 
-          <div className="footer-links">
-            <a href="#problemet" className="footer-link">Problemet</a>
-            <a href="#losningen" className="footer-link">Så funkar det</a>
-            <a href="#fordelar" className="footer-link">Fördelar</a>
-            <a href="#prissattning" className="footer-link">Prismodell</a>
-            <a href="#om-kevin" className="footer-link">Om Kevin</a>
-            <a href="#faq" className="footer-link">FAQ</a>
-            <a
-              href="mailto:kevin@prospectly.se"
-              className="footer-link"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
-            >
-              <Mail size={16} />
-              <span>kevin@prospectly.se</span>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/kevin-s%C3%B6der-b42a1b279?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="footer-link"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={16} />
-              <span>LinkedIn</span>
-            </a>
-            <a
-              href="https://calendly.com/kevin-prospectly"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="footer-link"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
-              aria-label="Calendly"
-            >
-              <Calendar size={16} />
-              <span>Calendly</span>
-            </a>
+          <div className="footer-links-group">
+            <div className="footer-links-col">
+              <h4>För Byggfirmor</h4>
+              <a
+                href="#problemet"
+                className="footer-link"
+                onClick={() => {
+                  if (currentView !== 'contractors') onSwitchView('contractors');
+                }}
+              >
+                Problemet
+              </a>
+              <a
+                href="#tjanster"
+                className="footer-link"
+                onClick={() => {
+                  if (currentView !== 'contractors') onSwitchView('contractors');
+                }}
+              >
+                Våra tjänster
+              </a>
+              <a
+                href="#kvalitetskrav"
+                className="footer-link"
+                onClick={() => {
+                  if (currentView !== 'contractors') onSwitchView('contractors');
+                }}
+              >
+                Kvalitetskrav
+              </a>
+              <a
+                href="#prismodell"
+                className="footer-link"
+                onClick={() => {
+                  if (currentView !== 'contractors') onSwitchView('contractors');
+                }}
+              >
+                Prismodell
+              </a>
+              <a
+                href="#boka-samtal"
+                className="footer-link"
+                onClick={() => {
+                  if (currentView !== 'contractors') onSwitchView('contractors');
+                }}
+              >
+                Boka samtal
+              </a>
+            </div>
+
+            <div className="footer-links-col">
+              <h4>För Privatpersoner</h4>
+              <button
+                type="button"
+                className="footer-link-btn"
+                onClick={() => {
+                  onSwitchView('homeowners');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+              >
+                Ska du renovera?
+              </button>
+              <button
+                type="button"
+                className="footer-link-btn"
+                onClick={() => {
+                  onSwitchView('homeowners');
+                  setTimeout(() => {
+                    document.getElementById('privat-forfragan')?.scrollIntoView({ behavior: 'smooth' });
+                  }, 100);
+                }}
+              >
+                Skicka in offert / förfrågan
+              </button>
+              <button
+                type="button"
+                className="footer-link-btn"
+                onClick={() => {
+                  onSwitchView('homeowners');
+                  setTimeout(() => {
+                    document.getElementById('kvalitetskrav')?.scrollIntoView({ behavior: 'smooth' });
+                  }, 100);
+                }}
+              >
+                Krav på våra hantverkare
+              </button>
+            </div>
+
+            <div className="footer-links-col">
+              <h4>Kontakt & Info</h4>
+              <a href="tel:0701234567" className="footer-link">
+                <Phone size={15} color="#2E7D5B" />
+                <span>070-123 45 67</span>
+              </a>
+              <a href="mailto:kevin@kevin-soder.se" className="footer-link">
+                <Mail size={15} />
+                <span>kevin@kevin-soder.se</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/kevin-s%C3%B6der-b42a1b279"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-link"
+              >
+                <Linkedin size={15} color="#0077b5" />
+                <span>LinkedIn</span>
+              </a>
+              <button
+                type="button"
+                className="footer-link-btn"
+                onClick={onOpenGdpr}
+              >
+                Integritetspolicy (GDPR)
+              </button>
+            </div>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <div>
-            © {new Date().getFullYear()} Prospectly (prospectly.se). Grundat av Kevin Söder. Alla rättigheter förbehållna.
-          </div>
-
-          {/* MediaMagnet Credit */}
-          <div className="footer__credit">
-            <span>Byggd av</span>
-            <a
-              href="https://mediamagnet.se"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="MediaMagnet Webb & Marknadsföring"
-            >
-              <img
-                src="/images/mediamagnet_logo_with_text_vit.png"
-                alt="MediaMagnet"
-                className="footer__credit-img"
-              />
-              <ArrowUpRight size={16} style={{ opacity: 0.8 }} />
-            </a>
+          <div className="footer-copyright">
+            © {new Date().getFullYear()} Kevin Söder. Alla rättigheter förbehållna. Verksam i Göteborg, Mölndal, Kungsbacka & Västsverige.
           </div>
 
           <button
+            type="button"
+            className="back-to-top-btn"
             onClick={scrollToTop}
-            style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: '#94a3b8', fontSize: '0.85rem' }}
+            aria-label="Tillbaka till toppen"
           >
             <span>Till toppen</span>
             <ArrowUp size={16} />
