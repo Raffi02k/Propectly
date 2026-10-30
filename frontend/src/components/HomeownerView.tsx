@@ -200,13 +200,13 @@ export const HomeownerView: React.FC<HomeownerViewProps> = ({ onSwitchToContract
             })}
           </div>
 
-          <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
+          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
             <button
               type="button"
               onClick={onSwitchToContractor}
-              className="btn btn-secondary"
+              className="btn btn-secondary homeowner-switch-cta-btn"
             >
-              <span>Är du hantverkare / byggföretagare? Gå till sidan för byggfirmor</span>
+              <span>Är du hantverkare? Gå till sidan för byggfirmor</span>
               <ArrowRight size={18} />
             </button>
           </div>

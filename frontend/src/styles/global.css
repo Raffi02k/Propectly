@@ -3958,6 +3958,23 @@ section[id], div[id] {
   }
 
   /* Universal button polish on mobile */
+  .btn {
+    max-width: 100%;
+    box-sizing: border-box;
+    white-space: normal;
+  }
+
+  .homeowner-switch-cta-btn {
+    white-space: normal;
+    text-align: center;
+    max-width: 100%;
+    width: 100%;
+    font-size: 0.88rem;
+    padding: 0.85rem 1rem;
+    line-height: 1.35;
+    box-sizing: border-box;
+  }
+
   .btn-lg {
     font-size: 0.88rem;
     padding: 0.85rem 1rem;
