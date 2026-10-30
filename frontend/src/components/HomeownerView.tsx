@@ -1,5 +1,5 @@
-import React from 'react';
-import { ShieldCheck, CheckCircle2, ArrowRight, HardHat, FileSearch, PhoneCall } from 'lucide-react';
+import React, { useState } from 'react';
+import { ShieldCheck, CheckCircle2, ArrowRight, HardHat, FileSearch, PhoneCall, ChevronDown } from 'lucide-react';
 import { HomeownerForm } from './HomeownerForm';
 import { TrustCertificates } from './TrustCertificates';
 
@@ -8,7 +8,35 @@ interface HomeownerViewProps {
   onOpenGdpr: () => void;
 }
 
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+const homeownerFaqs: FaqItem[] = [
+  {
+    question: 'Kostar det något för mig som privatperson?',
+    answer:
+      'Nej, absolut ingenting! Vår rådgivning, offerthjälp och förmedling är 100% kostnadsfri för dig som ska renovera. Eventuell ersättning betalas av byggfirman.',
+  },
+  {
+    question: 'Jag har redan fått en offert från en firma – kan ni granska den?',
+    answer:
+      'Ja, precis det är en av våra största styrkor! Många villaägare tycker offerter är svåra att tyda: Vad ingår? Är underarbetet medräknat? Kommer det bli dyra tillägg senare? Kevin går igenom offerten tillsammans med dig så att du känner dig 100% trygg innan du skriver på.',
+  },
+  {
+    question: 'Vilka hantverkare samarbetar ni med?',
+    answer:
+      'Vi jobbar endast med etablerade, granskade byggföretag i Göteborgsområdet med godkänd F-skatt, gällande ansvarsförsäkring och branschbehörigheter såsom Säker Vatten, BKR/GVK för våtrum samt Elsäkerhetsverket.',
+  },
+];
+
 export const HomeownerView: React.FC<HomeownerViewProps> = ({ onSwitchToContractor, onOpenGdpr }) => {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaqIndex((prev) => (prev === index ? null : index));
+  };
   return (
     <div className="homeowner-view-wrapper">
       {/* Homeowner Hero */}
@@ -144,38 +172,32 @@ export const HomeownerView: React.FC<HomeownerViewProps> = ({ onSwitchToContract
           </div>
 
           <div className="faq-accordion" style={{ maxWidth: '820px', margin: '0 auto' }}>
-            <div className="faq-item open">
-              <div className="faq-question-btn" style={{ cursor: 'default' }}>
-                <span className="faq-question-text">Kostar det något för mig som privatperson?</span>
-              </div>
-              <div className="faq-answer-inner">
-                <p className="faq-answer-text">
-                  Nej, absolut ingenting! Vår rådgivning, offerthjälp och förmedling är 100% kostnadsfri för dig som ska renovera. Eventuell ersättning betalas av byggfirman.
-                </p>
-              </div>
-            </div>
-
-            <div className="faq-item open">
-              <div className="faq-question-btn" style={{ cursor: 'default' }}>
-                <span className="faq-question-text">Jag har redan fått en offert från en firma – kan ni granska den?</span>
-              </div>
-              <div className="faq-answer-inner">
-                <p className="faq-answer-text">
-                  Ja, precis det är en av våra största styrkor! Många villaägare tycker offerter är svåra att tyda: Vad ingår? Är underarbetet medräknat? Kommer det bli dyra tillägg senare? Kevin går igenom offerten tillsammans med dig så att du känner dig 100% trygg innan du skriver på.
-                </p>
-              </div>
-            </div>
-
-            <div className="faq-item open">
-              <div className="faq-question-btn" style={{ cursor: 'default' }}>
-                <span className="faq-question-text">Vilka hantverkare samarbetar ni med?</span>
-              </div>
-              <div className="faq-answer-inner">
-                <p className="faq-answer-text">
-                  Vi jobbar endast med etablerade, granskade byggföretag i Göteborgsområdet med godkänd F-skatt, gällande ansvarsförsäkring och branschbehörigheter såsom Säker Vatten, BKR/GVK för våtrum samt Elsäkerhetsverket.
-                </p>
-              </div>
-            </div>
+            {homeownerFaqs.map((faq, index) => {
+              const isOpen = openFaqIndex === index;
+              return (
+                <div
+                  key={index}
+                  className={`faq-item ${isOpen ? 'open' : ''}`}
+                >
+                  <button
+                    type="button"
+                    className="faq-question-btn"
+                    aria-expanded={isOpen}
+                    onClick={() => toggleFaq(index)}
+                  >
+                    <span className="faq-question-text">{faq.question}</span>
+                    <span className={`faq-icon ${isOpen ? 'rotated' : ''}`}>
+                      <ChevronDown size={20} />
+                    </span>
+                  </button>
+                  <div className={`faq-answer-wrapper ${isOpen ? 'open' : ''}`}>
+                    <div className="faq-answer-inner">
+                      <p className="faq-answer-text">{faq.answer}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
           <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
