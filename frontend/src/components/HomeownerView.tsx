@@ -206,8 +206,8 @@ export const HomeownerView: React.FC<HomeownerViewProps> = ({ onSwitchToContract
               onClick={onSwitchToContractor}
               className="btn btn-secondary homeowner-switch-cta-btn"
             >
-              <span>Är du hantverkare? Gå till sidan för byggfirmor</span>
-              <ArrowRight size={18} />
+              <span>Är du hantverkare? Gå till byggfirmor</span>
+              <ArrowRight size={16} />
             </button>
           </div>
         </div>

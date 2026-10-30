@@ -3965,14 +3965,25 @@ section[id], div[id] {
   }
 
   .homeowner-switch-cta-btn {
-    white-space: normal;
+    white-space: nowrap !important;
     text-align: center;
     max-width: 100%;
-    width: 100%;
-    font-size: 0.88rem;
-    padding: 0.85rem 1rem;
-    line-height: 1.35;
+    width: auto;
+    font-size: 0.8rem;
+    padding: 0.65rem 1rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
     box-sizing: border-box;
+  }
+
+  .homeowner-switch-cta-btn span {
+    white-space: nowrap !important;
+  }
+
+  .homeowner-switch-cta-btn svg {
+    flex-shrink: 0;
   }
 
   .btn-lg {
